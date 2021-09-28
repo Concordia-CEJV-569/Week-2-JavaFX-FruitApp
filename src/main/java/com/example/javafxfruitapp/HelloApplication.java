@@ -62,6 +62,12 @@ public class HelloApplication extends Application implements EventHandler {
 
     void showAll() {
         fruits = "";
+        if (bananaCheckBox.isSelected()) fruits += " Banana";
+        if (mangoCheckBox.isSelected()) fruits += " Mango";
+        if (grapesCheckBox.isSelected()) fruits += " Grapes";
+        if (orangeCheckBox.isSelected()) fruits += " Orange";
+
+        selected.setText("Fruits selected:" + fruits);
     }
 
     public static void main(String[] args) {
@@ -71,13 +77,35 @@ public class HelloApplication extends Application implements EventHandler {
     @Override
     public void handle(Event event) {
         Object fruitChecked = event.getSource();
-        System.out.println(fruitChecked);
+
         if (bananaCheckBox.equals(fruitChecked)) {
             if (bananaCheckBox.isSelected()) {
                 response.setText("Banana selected");
             } else {
                 response.setText("Banana rejected");
             }
+            showAll();
+        } else if (mangoCheckBox.equals(fruitChecked)) {
+            if (mangoCheckBox.isSelected()) {
+                response.setText("Mango selected");
+            } else {
+                response.setText("Mango rejected");
+            }
+            showAll();
+        } else if (grapesCheckBox.equals(fruitChecked)) {
+            if (grapesCheckBox.isSelected()) {
+                response.setText("Grapes selected");
+            } else {
+                response.setText("Grapes rejected");
+            }
+            showAll();
+        } else if (orangeCheckBox.equals(fruitChecked)) {
+            if (orangeCheckBox.isSelected()) {
+                response.setText("Orange selected");
+            } else {
+                response.setText("Orange rejected");
+            }
+            showAll();
         }
     }
 }
